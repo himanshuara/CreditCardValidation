@@ -8,15 +8,15 @@ var deleteCard=null;
         }
         function createHTML(data){
             const markup = `<div>
-            ${data.map((details,index)=>`<section class="card-list-row  field-set">
+            ${Object.keys(data).map((details,index)=>`<section class="card-list-row  field-set">
                  <div>   <label>CITY CARD</label></div>
                 <div class="dsp-inb card-info">
-                    <span class="card-type ${details.type}"></span>
-                    <span class="card-number">${details.cardNumber}</span>
+                    <span class="card-type ${data[details].type}"></span>
+                    <span class="card-number">${data[details].cardNumber}</span>
                 </div>
                 <div class="dsp-inb action-container">
-                    <a href="./enterCardDetails.html?id=${details.id}" class="action-item edit">EDIT</a>
-                    <a href="javascript:void(0)" onclick ="deleteCard(${details.id})" class="action-item delete">DELETE</a>
+                    <a href="./enterCardDetails.html?id=${details}" class="action-item edit">EDIT</a>
+                    <a href="javascript:void(0)" onclick ="deleteCard(${details})" class="action-item delete">DELETE</a>
                 </div>
                 
             </section>`)}</div>`
@@ -27,10 +27,9 @@ var deleteCard=null;
         }
         function deleteCard(id){
             var completeData = getDataFromSession();
-            var data = filterData(id,completeData);
-            completeData.splice(data.idx,1);
+            delete completeData[id];
             saveDataInSession(completeData);
-            if(completeData.length){
+            if(Object.keys(completeData).length){
                 displayList(completeData);
             }
             else{
@@ -40,21 +39,7 @@ var deleteCard=null;
         function saveDataInSession(data){
             sessionStorage.setItem("cardDetails",JSON.stringify(data));
         }
-        function filterData(id,data){
-            var tuple;
-            var idx=null
-            for(let i=0,len=data.length;i<len;i++){
-                if(id === data[i].id){
-                    tuple = data[i];
-                    idx =i;
-                    break;
-                }
-            }
-            return {
-                tuple:tuple,
-                idx:idx
-            };
-        }
+   
         return {
             displayList:displayList,
             getDataFromSession:getDataFromSession,

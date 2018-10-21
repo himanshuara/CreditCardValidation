@@ -83,23 +83,23 @@ Using revealing module pattern
         function createCardData(data,id){
             var cardData =null;
             if(id){
-                cardData = filterData(Number(id),data);
-                cardData.tuple.cardNumber = cardEl.value.replace(/\s/g, '');
-                cardData.tuple.expiryMonth=monthEl.value === 'MM' ? null : monthEl.value;
-                cardData.tuple.expiryYear = yearEl.value === 'YYYY' ? null : yearEl.value;
-                cardData.tuple.type = cardType;
-                data.splice(Number(cardData.idx), 1, cardData.tuple);
+               cardData = {}
+                cardData.cardNumber = cardEl.value.replace(/\s/g, '');
+                cardData.expiryMonth=monthEl.value === 'MM' ? null : monthEl.value;
+                cardData.expiryYear = yearEl.value === 'YYYY' ? null : yearEl.value;
+                cardData.type = cardType;
+                data[id] = cardData
             }
             else{
-                data = data ? data : [];
+                data = data ? data : {};
+                let len = Object.keys(data).length
                 cardData = {
-                'id': data.length +1,
                 'cardNumber': cardEl.value.replace(/\s/g, ''),
                 'expiryMonth': monthEl.value === 'MM' ? null : monthEl.value,
                 'expiryYear': yearEl.value === 'YYYY' ? null : yearEl.value,
                 'type': cardType
             }
-            data.push(cardData);
+            data[len+1]=cardData;
         }
             
             return data;
@@ -112,23 +112,9 @@ Using revealing module pattern
             saveDataInSession(cardData);
             cardDetailForm.submit();
         }
-        function filterData(id,data){
-            var tuple;
-            var idx=null
-            for(let i=0,len=data.length;i<len;i++){
-                if(id === data[i].id){
-                    tuple = data[i];
-                    idx =i;
-                    break;
-                }
-            }
-            return {
-                tuple:tuple,
-                idx:idx
-            };
-        }
+        
         function displayData(id,data){
-            var tuple = filterData(id,data).tuple;
+            var tuple = data[id];
             cardEl.value=tuple.cardNumber;
             monthEl.value=tuple.expiryMonth || "MM";
             yearEl.value=tuple.expiryYear || "YYYY";
