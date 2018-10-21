@@ -33,6 +33,10 @@
     visibility: visible;
     background-image: url("../images/visa.png");
 }
+.card-container .card-type.amex{
+    visibility: visible;
+    background-image: url("../images/amex.png");
+}
 .card-container .other-details-field{
     display:inline-block;
     padding-bottom:10px;
