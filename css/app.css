@@ -1,0 +1,13 @@
+body{
+    background: #eee;
+}
+.dsp-inb{
+    display:inline-block;
+}
+.page-container{
+    width: 30%;
+    margin: auto;
+    background: #fff;
+    margin-top: 15%;
+    margin-bottom: 15%;
+}

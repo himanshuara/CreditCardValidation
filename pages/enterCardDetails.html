@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<title>Enter Card Details</title>
+<link rel="stylesheet" type="text/css" href="../css/reset.css">
+<link rel="stylesheet" type="text/css" href="../css/app.css">
+<link rel="stylesheet" type="text/css" href="../css/cardDetails.css">
+<head>
+<body>
+    <div class="page-container">
+        <form name="card-details-form" action="./cardList.html" onsubmit="return false;">
+        <div class="card-container">
+            <section class="card-number field-set">
+                    <label>CARD NUMBER</label>
+                <div class="text-input-container">
+                    <input type="text" class="field" placeholder="Card Number" tabindex=1 autocomplete="off" id="credit-card" />
+                    <span class="card-type"></span>
+                </div>
+                <i class="error-message">Enter a valid card number</i>
+            </section>
+            <section class="other-details field-set">
+                 <label>EXPIRY</label>
+                <div class="select-input-container">
+                    <div class="other-details-field">
+                    <select class="month-dropdown" id="expiry-month" disabled tabindex=2>
+                        <option selected value="MM">MM</option>
+                        <option value="01">01</option>
+                        <option value="02" >02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div class="other-details-field">
+                    <select class="year-dropdown" id="expiry-year" tabindex=3 disabled>
+                        <option selected value="YYYY">YYYY</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+                <div class="other-details-field">
+                    <input type="password" id="card-cvv" placeholder="CVV" tabindex=4 disabled autocomplete="off" maxlength="3"/>
+                </div>
+                </div>
+            </section>
+            <section class="card-submit field-set">
+                <div class="card-submit-wrap">
+                    <input type="submit" class="btn-submit" name="card-details-submit" value="SUBMIT" />
+                </div>
+            </section>
+        </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="../js/app.js"></script>
+</body>
+</html>

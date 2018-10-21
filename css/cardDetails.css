@@ -1,0 +1,79 @@
+
+.card-container .field-set{
+    padding: 15px;
+}
+.card-container .field-set label{
+    font-size:10px;
+    color:#939393;
+}
+.card-container .text-input-container{
+    border-bottom: 1px solid #eee;
+}
+.card-container .text-input-container input[type='text']{
+    border: none;
+    width: 90%;
+    padding: 5px 0;
+    outline: 0;
+    color:#515151;
+    font-size:14px;
+}
+.card-container .card-type{
+    display: inline-block;
+    visibility: hidden;
+    width: 30px;
+    height: 25px;
+    vertical-align: middle;
+}
+.card-container .card-type.master{
+    visibility: visible;
+    background-image: url("../images/mastercard.png");
+    width:24px;
+}
+.card-container .card-type.visa{
+    visibility: visible;
+    background-image: url("../images/visa.png");
+}
+.card-container .other-details-field{
+    display:inline-block;
+    padding-bottom:10px;
+    border-bottom: 1px solid #eee;
+    width:25%;
+}
+.card-container .other-details-field:last-child{
+    width:47.5%;
+}
+.card-container .other-details-field .month-dropdown,.card-container .other-details-field .year-dropdown{
+    width:100%;
+}
+
+.card-container .other-details-field select,.card-container .other-details-field input[type='password']{
+    outline: 0;
+    border:none;
+    font-size:14px;
+    background: #fff;
+    color:#515151;
+}
+.card-container .card-submit-wrap{
+    padding: 10px 15px;
+    text-align: center;
+}
+.card-container .card-submit .btn-submit{
+    width: 80%;
+    padding: 10px;
+    color: #F3B433;
+    font-size: 14px;
+    background: #161B6E;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*CSS for displaying error messages*/
+.card-container .error-message{
+    font-size: 10px;
+    font-style: normal;
+    color: red;
+    display:none;
+}
+.card-container .error .error-message{
+    display:inline-block;
+}
